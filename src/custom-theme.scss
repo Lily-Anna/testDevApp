@@ -1,0 +1,8 @@
+@import '~@angular/material/theming';
+$mat-blue: mat-palette($mat-light-blue);
+@include mat-light-theme((
+  color: (
+    primary: mat-palette($mat-blue),
+    accent: mat-palette($mat-blue, A200),
+  )
+));
