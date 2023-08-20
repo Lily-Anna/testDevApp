@@ -9,6 +9,10 @@ import { PostsPageComponent } from './posts-page/posts-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { HeaderComponent } from './header/header.component';
 
+
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +22,8 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule

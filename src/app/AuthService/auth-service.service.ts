@@ -3,27 +3,28 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
 
-  private isAuthenticated = false;
+  private localStorageKey = 'user';
 
-  constructor(private router: Router) {}
+  constructor() { }
 
-  login(username: string, password: string): boolean {
-    // Здесь вы можете выполнить проверку учетных данных на сервере или использовать фиктивные данные для демонстрации
-    if (username === 'admin' && password === 'password') {
-      this.isAuthenticated = true;
-      return true;
-    }
-    return false;
+  public login(username: string, password: string): void {
+    // Здесь можно добавить логику проверки введенных данных или обращение к API для авторизации
+    const user = { username, password };
+    localStorage.setItem(this.localStorageKey, JSON.stringify(user));
   }
 
-  logout(): void {
-    this.isAuthenticated = false;
-    this.router.navigate(['/login']);
+  public logout(): void {
+    localStorage.removeItem(this.localStorageKey);
   }
 
-  isLoggedIn(): boolean {
-    return this.isAuthenticated;
+  public getUser(): any {
+    const userString = localStorage.getItem(this.localStorageKey);
+    return userString ? JSON.parse(userString) : null;
+  }
+
+  public isLoggedIn(): boolean {
+    return this.getUser() !== null;
   }
 }

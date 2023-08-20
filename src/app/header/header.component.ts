@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  title: string = 'Мое приложение';
 
+  constructor() { }
+
+  onButtonClick(): void {
+    alert('Кликнули на кнопку');
+  }
 }
