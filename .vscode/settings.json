@@ -1,0 +1,5 @@
+{
+    "angular.disableAutomaticNgcc": true,
+    "angular.forceStrictTemplates": true,
+    "angular.view-engine": true
+}
