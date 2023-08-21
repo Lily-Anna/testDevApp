@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { PostsPageComponent } from './posts-page/posts-page.component';
-import { AuthGuard } from './AuthService/auth-guard';
-import { PostPageComponent } from './post-page/post-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { PostPageComponent } from './components/post-page/post-page.component';
+import { PostsPageComponent } from './components/posts-page/posts-page.component';
+import { AuthGuard } from './services/auth-service/auth-guard';
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'posts', component: PostsPageComponent, canActivate: [AuthGuard] },

@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { PostsPageComponent } from './posts-page/posts-page.component';
-import { PostPageComponent } from './post-page/post-page.component';
-import { HeaderComponent } from './header/header.component';
-
-
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { PostsPageComponent } from './components/posts-page/posts-page.component';
+import { PostPageComponent } from './components/post-page/post-page.component';
+import { HeaderComponent } from './components/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { AppRoutingModule } from './app-routing.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,16 +16,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     LoginPageComponent,
     PostsPageComponent,
     PostPageComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     ReactiveFormsModule,
     MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

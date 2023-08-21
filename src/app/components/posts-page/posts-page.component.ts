@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../AuthService/auth-service.service';
+import { AuthService } from 'src/app/services/auth-service/auth-service.service';
 @Component({
   selector: 'app-posts-page',
   templateUrl: './posts-page.component.html',
