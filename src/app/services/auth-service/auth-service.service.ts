@@ -1,26 +1,36 @@
+import { LoginForm } from './../../models/LoginForm';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  private localStorageKey = 'user';
+  private readonly USER_KEY = 'user';
 
   constructor() { }
 
-  public login(username: string, password: string): void {
-    // Здесь можно добавить логику проверки введенных данных или обращение к API для авторизации
+  register(username: string, password: string): void {
+    // Регистрация пользователя
     const user = { username, password };
-    localStorage.setItem(this.localStorageKey, JSON.stringify(user));
+    localStorage.setItem(this.USER_KEY, JSON.stringify(user));
+  }
+
+  login(username: string, password: string): boolean {
+    // Проверка данных пользователя при входе
+    const user = JSON.parse(localStorage.getItem(this.USER_KEY)!);
+    if (user && user.username === username && user.password === password) {
+      localStorage.setItem('isLoggedIn', 'true');
+      return true;
+    }
+    return false;
   }
 
   public logout(): void {
-    localStorage.removeItem(this.localStorageKey);
+    localStorage.removeItem(this.USER_KEY);
   }
 
-  public getUser(): any {
-    const userString = localStorage.getItem(this.localStorageKey);
+  public getUser(): LoginForm {
+    const userString = localStorage.getItem(this.USER_KEY);
     return userString ? JSON.parse(userString) : null;
   }
 
